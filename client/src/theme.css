@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,500&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-safe-area";
+
+@theme {
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 36px;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 40px;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 52px;
+  --font-display: "Rajdhani", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light dark;
+  --bg: #e6ebf2;
+  --surface: #ffffff;
+  --surface2: #d9e2ec;
+  --text: #0f172a;
+  --dim: #5b6b82;
+  --border: #b8c6d8;
+  --accent: #d97706;
+  --accent-solid: #f59e0b;
+  --accent-text: #92400e;
+  --oxblood: #dc2626;
+  --sage: #15803d;
+  --sage-solid: #22c55e;
+  --cyan: #0284c7;
+  --cyan-solid: #06b6d4;
+  --gold: #eab308;
+  --radius: 16px;
+  --space-surface: var(--surface);
+  --space-surface-alt: var(--surface2);
+  --space-muted: var(--dim);
+  --space-border: var(--border);
+  --space-accent: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f1a;
+    --surface: #141d2e;
+    --surface2: #1e2a42;
+    --text: #f1f5f9;
+    --dim: #94a8c3;
+    --border: #2e415e;
+    --accent: #fbbf24;
+    --accent-solid: #f59e0b;
+    --accent-text: #fcd34d;
+    --oxblood: #f87171;
+    --sage: #4ade80;
+    --sage-solid: #22c55e;
+    --cyan: #22d3ee;
+    --cyan-solid: #06b6d4;
+    --gold: #facc15;
+  }
+}
+
+.font-display { font-family: var(--font-display); letter-spacing: 0.01em; }
+.font-arcade { font-family: "Orbitron", monospace; letter-spacing: 0.04em; }
+
+/* chunky game-card shadow — works in both modes without glow spam */
+.game-card {
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 0 0 rgba(15,23,42,0.18);
+}
+@media (prefers-color-scheme: dark) {
+  .game-card { box-shadow: 0 4px 0 0 rgba(0,0,0,0.55); }
+}
+.game-btn {
+  box-shadow: 0 4px 0 0 rgba(15,23,42,0.28);
+  transition: transform .08s ease, box-shadow .08s ease, filter .12s ease;
+}
+.game-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 0 rgba(15,23,42,0.28); }
+@media (prefers-reduced-motion: reduce) {
+  .game-btn { transition: none; }
+  .game-btn:active { transform: none; }
+}
+
+/* striped XP bar fill */
+.xp-fill {
+  background-color: var(--accent-solid);
+  background-image: repeating-linear-gradient(-55deg, rgba(255,255,255,0.22) 0 10px, transparent 10px 20px);
+}
+.hp-fill { background-color: var(--oxblood); }
+@media (prefers-color-scheme: dark) { .hp-fill { background-color: #ef4444; } }
